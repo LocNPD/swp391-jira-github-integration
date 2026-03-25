@@ -1,0 +1,47 @@
+package com.swp391.backend.dto.response;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class GitHubCommitDTO {
+
+    private String sha;
+
+    private CommitInfo commit;
+
+    private RootAuthor author;
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class RootAuthor {
+        private String login;
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class CommitInfo {
+        private String message;
+        private Author author;
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class Author {
+        private String name;
+        private String email;
+        private String date;
+    }
+}
